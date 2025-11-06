@@ -24,21 +24,39 @@
         <!-- Seção de Encomenda -->
         <section id="encomenda">
             <h2>Como faço minha encomenda?</h2>
-            <p> Olá! Seja bem-vindo(a)! </p>
+            <p>Olá! Seja bem-vindo(a)! </p>
             <p>Estou aqui para transformar suas ideias em realidade e tornar sua encomenda única e especial! Para começarmos, envie uma foto ou descreva a peça que você deseja. Assim que eu receber suas informações, vou preparar um orçamento sob medida, levando em conta a cor e o tamanho que você preferir.</p>
             <p>Para garantir a qualidade e a exclusividade do seu pedido, solicito um pagamento de 30% antecipado para a compra dos materiais.</p>
             <p>Sinta-se à vontade para me chamar em nossas redes sociais com qualquer dúvida ou sugestão! Estou aqui para ajudar e ansioso(a) para criar algo incrível para você!</p>
-            <p>Vamos juntos dar vida às suas ideias! </p>
+            <p>Vamos juntos dar vida às suas ideias!</p>
         </section>
+
+        <h1>Agendamentos e Orçamentos</h1>
+
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <p><label for="nome">Nome e sobrenome:</label><br>
+                <input type="text" name="nome" id="nome" required>
+            </p>
+
+            <p><label for="descricao">Descreva a peça desejada:</label><br>
+                <textarea id="descricao" name="descricao" rows="4" placeholder="Ex: blusa de crochê boho, cor bege, com manga 3/4..." required></textarea>
+            </p>
+
+            <p><label for="tamanho">Informe o tamanho ou medidas desejadas:</label><br>
+                <input type="text" id="tamanho" name="tamanho" placeholder="Ex: M ou busto 90cm, cintura 70cm, quadril 98cm" required>
+            </p>
+
+            <p><input type="submit" value="Enviar Pedido"></p>
+        </form>
 
         <!-- Botões de contato -->
         <section id="contato">
             <h2>Entre em Contato</h2>
             <p>Envie sua ideia ou referência pelas nossas redes sociais:</p>
             <ul class="contato-links">
-                <li><a href="https://www.instagram.com/megreencrochett/" target="_blank"> Instagram</a></li>
-                <li><a href="https://shopee.com.br/megueellen" target="_blank"> Shopee</a></li>
-                <li><a href="https://wa.me/5585992800865" target="_blank"> WhatsApp</a></li>
+                <li><a href="https://www.instagram.com/megreencrochett/" target="_blank">Instagram</a></li>
+                <li><a href="https://shopee.com.br/megueellen" target="_blank">Shopee</a></li>
+                <li><a href="https://wa.me/5585992800865" target="_blank">WhatsApp</a></li>
             </ul>
         </section>
     </main>
@@ -46,5 +64,19 @@
     <footer>
         <p>&copy; 2026 Megreen Crochê - Feito com 💚 por Megue Ellen</p>
     </footer>
+    <script>
+      document.querySelector("form").addEventListener("submit", function(event){
+        event.preventDefault();
+
+        const nome = encodeURIComponent(document.getElementById("nome").value);
+        const descricao = encodeURIComponent(document.getElementById("descricao").value);
+        const tamanho = encodeURIComponent(document.getElementById("tamanho").value);
+
+        const mensagem = `Olá Megreen !%0A%0A*Nova encomenda ou orçamento:*%0A Nome: ${nome}%0A Descrição: ${descricao}%0A Tamanho: ${tamanho}`;
+        const numero = "5585992800865"; 
+
+        window.open(`https://wa.me/${numero}?text=${mensagem}`, "_blank");
+      });
+    </script>
 </body>
 </html>
